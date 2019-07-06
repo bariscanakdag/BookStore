@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @Controller
 @RequestMapping("/")
-public class TestController {
+public class HomeController {
 
     @GetMapping
     public  String getPageMain(){

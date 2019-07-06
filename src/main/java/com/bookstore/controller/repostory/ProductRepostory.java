@@ -1,4 +1,7 @@
 package com.bookstore.controller.repostory;
 
-public class ProductRepostory {
+import com.bookstore.controller.entity.Product;
+import org.springframework.data.repository.CrudRepository;
+
+public interface ProductRepostory extends CrudRepository<Product, Integer> {
 }
