@@ -1,4 +1,4 @@
-package com.bookstore.controller.entity;
+package com.bookstore.entity;
 
 import javax.persistence.Entity;
 import java.math.BigDecimal;

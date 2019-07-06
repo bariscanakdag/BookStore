@@ -1,4 +1,4 @@
-package com.bookstore.controller.entity;
+package com.bookstore.entity;
 
 public class Image {
 

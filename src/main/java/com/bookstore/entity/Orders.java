@@ -1,4 +1,4 @@
-package com.bookstore.controller.entity;
+package com.bookstore.entity;
 
 import java.util.Date;
 import java.util.List;
@@ -9,7 +9,7 @@ public class Orders {
     private Date createdDate;
     private  boolean isShipping;
     private List<Product> products;
-    private Customer customer;
+    private User user;
 
     public int getId() {
         return id;
@@ -43,11 +43,11 @@ public class Orders {
         this.products = products;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public User getUser() {
+        return user;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setUser(User user) {
+        this.user = user;
     }
 }
