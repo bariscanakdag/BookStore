@@ -1,27 +1,31 @@
 package com.bookstore.entity;
 
-import javax.persistence.Entity;
+import org.springframework.context.annotation.Primary;
+
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Product {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String comment;
     private BigDecimal price;
-    private List<Image> images;
+
+    @ManyToMany
+    private Set<Image> images;
+
     private BigDecimal discount;
     private BigDecimal totalDiscount;
     private int rate;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+    @ManyToMany
+    private List<Catalog> catalogs;
 
     public int getId() {
         return id;
@@ -29,6 +33,14 @@ public class Product {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getComment() {
@@ -47,11 +59,11 @@ public class Product {
         this.price = price;
     }
 
-    public List<Image> getImages() {
+    public Set<Image> getImages() {
         return images;
     }
 
-    public void setImages(List<Image> images) {
+    public void setImages(Set<Image> images) {
         this.images = images;
     }
 
@@ -77,5 +89,13 @@ public class Product {
 
     public void setRate(int rate) {
         this.rate = rate;
+    }
+
+    public List<Catalog> getCatalogs() {
+        return catalogs;
+    }
+
+    public void setCatalogs(List<Catalog> catalogs) {
+        this.catalogs = catalogs;
     }
 }

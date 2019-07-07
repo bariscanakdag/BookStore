@@ -1,14 +1,23 @@
 package com.bookstore.entity;
 
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
+@Entity
 public class Orders {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private Date createdDate;
-    private  boolean isShipping;
+    private boolean isShipping;
+
+    @OneToMany
     private List<Product> products;
+
+    @OneToOne
     private User user;
 
     public int getId() {

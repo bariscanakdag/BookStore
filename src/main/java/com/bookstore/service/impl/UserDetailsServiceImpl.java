@@ -11,12 +11,13 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.HashSet;
 import java.util.Set;
 
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    @Autowired
+    @Resource(name = "userRepository")
     private UserRepository userRepository;
 
     @Override

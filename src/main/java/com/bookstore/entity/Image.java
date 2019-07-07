@@ -1,10 +1,19 @@
 package com.bookstore.entity;
 
+import javax.persistence.*;
+import java.util.Set;
+
+@Entity
 public class Image {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  int id;
     private   String path;
     private  String name;
+
+    @ManyToMany
+    private Set<Product> products;
 
 
     public int getId() {

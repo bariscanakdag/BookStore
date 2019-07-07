@@ -23,8 +23,6 @@ public class LoginController {
     @Resource(name = "securityServiceImpl")
     private SecurityService securityService;
 
-
-
     private static final String LOGINPAGE_NAME="Giriş Yap";
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -38,7 +36,6 @@ public class LoginController {
     public  String checkUser(HttpServletRequest request, HttpServletResponse response, Model theModel,
                              @ModelAttribute("user")User user, BindingResult result){
 
-        String asd =securityService.findLoggedInUsername();
         securityService.autoLogin(user.getUserName(),user.getPassword());
         return  "adminpage";
     }

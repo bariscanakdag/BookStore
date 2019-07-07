@@ -20,7 +20,6 @@ public class SecurityServiceImpl implements SecurityService {
     @Resource(name = "authenticationManager")
     private AuthenticationManager authenticationManager;
 
-
     @Autowired
     private UserDetailsService userDetailsService;
 
@@ -39,6 +38,7 @@ public class SecurityServiceImpl implements SecurityService {
 
     @Override
     public void autoLogin(String username, String password) {
+
         UserDetails userDetails = userDetailsService.loadUserByUsername(username);
         UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(userDetails, password, userDetails.getAuthorities());
 

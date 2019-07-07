@@ -4,18 +4,20 @@ import com.bookstore.entity.User;
 import com.bookstore.repository.RoleRepository;
 import com.bookstore.repository.UserRepository;
 import com.bookstore.service.UserService;
+import com.google.common.collect.Sets;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import com.google.common.collect.Sets;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 
+@Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
+    @Autowired(required = false)
     private UserRepository userRepository;
 
-    @Autowired
+    @Autowired(required = false)
     private RoleRepository roleRepository;
 
     @Autowired
