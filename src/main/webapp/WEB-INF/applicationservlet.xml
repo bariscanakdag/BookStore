@@ -20,7 +20,6 @@
 
     <!-- Add support for conversion, formatting and validation support -->
     <mvc:resources mapping="/appdata/**" location="/appdata/"/>
-    <mvc:resources mapping="/appdata/js/**" location="/appdata/js"/>
     <mvc:annotation-driven/>
 
 

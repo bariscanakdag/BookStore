@@ -23,20 +23,37 @@ public class LoginController {
     @Resource(name = "securityServiceImpl")
     private SecurityService securityService;
 
-    private static final String LOGINPAGE_NAME="Giriş Yap";
+    private static final String LOGINPAGE_NAME = "Giriş Yap";
+    private static final String REGISTERPAGE_NAME = "Kayıt Ol";
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String getLoginPage(HttpServletRequest request, HttpServletResponse response, Model theModel) {
         theModel.addAttribute("title", LOGINPAGE_NAME);
-        theModel.addAttribute("user",new User());
+        theModel.addAttribute("user", new User());
         return "login";
     }
 
-    @RequestMapping(value = "/login",method =RequestMethod.POST)
-    public  String checkUser(HttpServletRequest request, HttpServletResponse response, Model theModel,
-                             @ModelAttribute("user")User user, BindingResult result){
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String checkUser(HttpServletRequest request, HttpServletResponse response, Model theModel,
+                            @ModelAttribute("user") User user, BindingResult result) {
 
-        securityService.autoLogin(user.getUserName(),user.getPassword());
-        return  "adminpage";
+        securityService.autoLogin(user.getUserName(), user.getPassword());
+        return "adminpage";
+    }
+
+    @RequestMapping(value = "/register", method = RequestMethod.GET)
+    public String getRegisterPage(HttpServletRequest request, HttpServletResponse response, Model theModel) {
+        theModel.addAttribute("title", REGISTERPAGE_NAME);
+        theModel.addAttribute("register", new User());
+        return "register";
+    }
+
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public String doRegister(HttpServletRequest request, HttpServletResponse response, Model theModel,@ModelAttribute("register") User user ) {
+        theModel.addAttribute("title", REGISTERPAGE_NAME);
+
+        
+        theModel.addAttribute("register", new User());
+        return "register";
     }
 }

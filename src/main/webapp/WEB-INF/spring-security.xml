@@ -11,6 +11,7 @@
     <security:http use-expressions="true">
         <security:intercept-url pattern="/auth/login*" access="isAnonymous()"/>
         <security:intercept-url pattern="/appdata/**" access="isAnonymous()"/>
+        <security:intercept-url pattern="/auth/register" access="isAnonymous()"/>
         <security:intercept-url pattern="/**" access="isAuthenticated()"/>
 
 

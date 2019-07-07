@@ -90,7 +90,7 @@
 							Yada
 						</span>
 
-                    <a href="#" class="txt2">
+                    <a href="/auth/register" class="txt2">
                         Kayıt Ol
                     </a>
                 </div>
